@@ -11,4 +11,3 @@ ReactDOM.render(
         <WeekPicker/>
     </div>,
     document.getElementById('root'))
-
