@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './HourCell.scss'
 
 
 const HourCell = ({text}) => {
     return (
-        <div style={{
-            width: '120px',
-            display: 'flex',
-            justifyContent: 'center',
-        }}>
+        <div className={'hourCell'}>
             {text}
         </div>
     )
