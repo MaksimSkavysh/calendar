@@ -1,19 +1,15 @@
-import React, {Fragment, PureComponent} from 'react'
-import DayColumn from '../DayColumn/DayColumn'
+import React, {PureComponent} from 'react'
+import DayRow from '../DayRow/DayRow'
+import {dayName, hours} from "../../constants";
 
 
 class WeekPicker extends PureComponent {
     render() {
-        const dayName = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
-        const dayInWeek = new Array(7).fill(-1).map((_, index) => dayName[index])
         return (
-            <div style={{
-                display: 'flex',
-            }}>
-                {dayInWeek.map(item => (
-                        <Fragment key={item}>
-                            <DayColumn name={item}/>
-                        </Fragment>
+            <div>
+                {dayName.map(item => <DayRow rowIndex={item}/>)}
+                {hours.map((item, rowIndex) => (
+                    <DayRow key={item} rowIndex={rowIndex}/>
                 ))}
             </div>
         )
