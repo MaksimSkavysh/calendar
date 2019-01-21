@@ -1,4 +1,4 @@
-import React, {Fragment, PureComponent} from 'react'
+import React, {PureComponent} from 'react'
 import HourCell from '../HourCell/HourCell'
 import {hours} from "../../constants";
 
@@ -9,12 +9,16 @@ class DayColumn extends PureComponent {
         const {name} = this.props
         return (
             <div>
-                <HourCell text={name}/>
-                <Fragment>
+                <div style={{
+                    outline: '1px solid black',
+                }}>
+                    <HourCell text={name}/>
+                </div>
+                <div>
                     {hours.map(item => (
                         <HourCell key={item} text={item}/>
                     ))}
-                </Fragment>
+                </div>
             </div>
         )
     }
