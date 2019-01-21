@@ -1,17 +1,17 @@
 import React, {PureComponent} from 'react'
-import DayColumn from '../DayColumn/DayColumn'
-import {dayName} from "../../constants"
+import DayRow from '../DayRow/DayRow'
+import {dayName, hours} from "../../constants"
 
 
 class WeekPicker extends PureComponent {
     render() {
         return (
             <div style={{
-                display: 'flex',
                 outline: '1px solid black'
             }}>
-                {dayName.map(item => (
-                    <DayColumn key={item} name={item}/>
+                <DayRow name={dayName}/>
+                {hours.map(item => (
+                    <DayRow key={item} name={item}/>
                 ))}
             </div>
         )

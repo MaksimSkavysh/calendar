@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 
 const HourCell = ({text}) => {
@@ -14,3 +15,11 @@ const HourCell = ({text}) => {
 }
 
 export default HourCell
+
+HourCell.prototype = {
+    text: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+}
+
