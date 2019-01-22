@@ -1,7 +1,10 @@
 import React, {PureComponent} from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
 import HourCell from '../HourCell/HourCell'
 import {dayName} from "../../constants"
-import PropTypes from 'prop-types'
+
 import './DayRow.scss'
 
 
@@ -9,11 +12,16 @@ class DayRow extends PureComponent {
 
     render() {
         const {name} = this.props
-        const content = Array.isArray(name)
+        const isNameArray = Array.isArray(name)
+        const rowClass = classNames({
+            'day-row': true,
+            'header-outline': isNameArray,
+            'header-outline-none': !isNameArray,
+        })
         return (
-            <div className={`dayRow ${content ? 'headerOutline' : 'headerOutlineNone'}`}>
+            <div className={rowClass}>
                 {dayName.map((item, index) => (
-                    <HourCell key={item} text={content ? name[index] : name}/>
+                    <HourCell key={item} text={isNameArray ? name[index] : name}/>
                 ))}
             </div>
         )
@@ -26,5 +34,6 @@ DayRow.proptype = {
     name: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
+        PropTypes.array,
     ]),
 }

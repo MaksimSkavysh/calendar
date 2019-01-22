@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import './HourCell.scss'
 
 
 const HourCell = ({text}) => {
     return (
-        <div className={'hourCell'}>
+        <div className={'hour-cell'}>
             {text}
         </div>
     )
@@ -19,4 +20,3 @@ HourCell.prototype = {
         PropTypes.number,
     ]),
 }
-
