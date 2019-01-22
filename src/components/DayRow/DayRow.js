@@ -13,8 +13,7 @@ class DayRow extends PureComponent {
     render() {
         const {name} = this.props
         const isNameArray = Array.isArray(name)
-        const rowClass = classNames({
-            'day-row': true,
+        const rowClass = classNames('day-row', {
             'header-outline': isNameArray,
             'header-outline-none': !isNameArray,
         })
@@ -32,7 +31,6 @@ export default DayRow
 
 DayRow.propTypes = {
     name: PropTypes.oneOfType([
-        PropTypes.string,
         PropTypes.number,
         PropTypes.array,
     ]),
