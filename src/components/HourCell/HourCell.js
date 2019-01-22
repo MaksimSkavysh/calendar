@@ -6,7 +6,7 @@ import './HourCell.scss'
 
 const HourCell = ({text}) => {
     return (
-        <div className={'hour-cell'}>
+        <div className="hour-cell">
             {text}
         </div>
     )
