@@ -1,15 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import './HourCell.scss'
 
 
 const HourCell = ({text}) => {
     return (
-        <div style={{
-            border: '1px solid black',
-            width: '120px',
-        }}>
+        <div className={'hourCell'}>
             {text}
         </div>
     )
 }
 
 export default HourCell
+
+HourCell.prototype = {
+    text: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+}
+
