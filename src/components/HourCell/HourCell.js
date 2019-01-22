@@ -14,7 +14,7 @@ const HourCell = ({text}) => {
 
 export default HourCell
 
-HourCell.prototype = {
+HourCell.propTypes = {
     text: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,

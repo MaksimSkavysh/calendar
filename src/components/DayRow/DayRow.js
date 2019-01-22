@@ -21,7 +21,7 @@ class DayRow extends PureComponent {
         return (
             <div className={rowClass}>
                 {dayName.map((item, index) => (
-                    <HourCell key={item} text={isNameArray ? name[index] : name}/>
+                    <HourCell key={index} text={isNameArray ? name[index] : name}/>
                 ))}
             </div>
         )
@@ -30,7 +30,7 @@ class DayRow extends PureComponent {
 
 export default DayRow
 
-DayRow.proptype = {
+DayRow.propTypes = {
     name: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
