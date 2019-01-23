@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './HourCell.scss'
+import style from './HourCell.module.scss'
 
 
 const HourCell = ({text}) => {
     return (
-        <div className="hour-cell">
+        <div className={style.hourCell}>
             {text}
         </div>
     )

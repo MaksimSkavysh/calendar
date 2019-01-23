@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import HourCell from '../HourCell/HourCell'
 import {dayName} from "../../constants"
 
-import './DayRow.scss'
+import style from './DayRow.module.scss'
 
 
 class DayRow extends PureComponent {
@@ -13,9 +13,9 @@ class DayRow extends PureComponent {
     render() {
         const {name} = this.props
         const isNameArray = Array.isArray(name)
-        const rowClass = classNames('day-row', {
-            'header-outline': isNameArray,
-            'header-outline-none': !isNameArray,
+        const rowClass = classNames([style.dayRow], {
+            [style.headerOutline]: isNameArray,
+            [style.headerOutlineNone]: !isNameArray,
         })
         return (
             <div className={rowClass}>

@@ -3,14 +3,14 @@ import React, {PureComponent} from 'react'
 import DayRow from '../DayRow/DayRow'
 import {dayName, hours} from "../../constants"
 
-import './WeekPicker.scss'
+import style from './WeekPicker.module.scss'
 
 
 class WeekPicker extends PureComponent {
     render() {
         return (
-            <div className="week-picker-position">
-                <div className="week-picker">
+            <div className={style.weekPickerPosition}>
+                <div className={style.weekPicker}>
                     <DayRow name={dayName}/>
                     <div>
                         {hours.map(item => (
