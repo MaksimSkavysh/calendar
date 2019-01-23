@@ -9,7 +9,6 @@ import style from './DayRow.module.scss'
 
 
 class DayRow extends PureComponent {
-
     render() {
         const {name} = this.props
         const isNameArray = Array.isArray(name)
