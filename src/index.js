@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Button} from 'reactstrap'
+
+import WeekPicker from './components/WeekPicker/WeekPicker'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-ReactDOM.render(
-    <Button color="primary">primary</Button>,
-    document.getElementById('root'))
 
+ReactDOM.render(
+    <WeekPicker/>,
+    document.getElementById('root'))
