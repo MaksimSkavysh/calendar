@@ -1,0 +1,17 @@
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 1rem;
+  display:flex;
+  align-items: baseline;
+  justify-content: space-around;
+
+  .logo {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2.5rem;
+    padding-left: 1rem;
+  }
+  .items {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+  }
+}
