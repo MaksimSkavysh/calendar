@@ -5,5 +5,5 @@ import LoginPage from './login-page'
 export {
     MainPage,
     GridPage,
-    LoginPage
+    LoginPage,
 }
