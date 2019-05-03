@@ -1,28 +1,54 @@
 import React from 'react'
-import classNames from 'classnames'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import style from './top-menu.module.scss'
+import { withStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
 
-const TopMenu = () => {
-
-    const headerClass = classNames(style.header, 'row')
-    const logoClass = classNames(style.logo, 'text-dark')
-    const itemsClass = classNames(style.items, 'text-dark')
-
-    return (
-        <header role='banner' className={headerClass}>
-            <Link to='/'>
-                <div className={logoClass}>RSP</div>
-            </Link>
-            <Link to='/grid'>
-                <div className={itemsClass}>Grid</div>
-            </Link>
-            <Link to='/login'>
-                <div className={itemsClass}>Login</div>
-            </Link>
-        </header>
-    )
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -18,
+    marginRight: 10,
+  },
+  headerButton: {
+    marginLeft: 18,
+    marginRight: 10,
+  },
 }
 
-export default TopMenu
+const TopMenu = ({ classes }) => {
+  return (
+    <div className={classes.root}>
+      <AppBar position='static'>
+        <Toolbar variant='dense'>
+          <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
+            <MenuIcon />
+          </IconButton>
+          <Typography className={classes.headerButton} variant='h6' color='inherit'>
+            <Link to='/'>
+                            RSP
+            </Link>
+          </Typography>
+          <Typography className={classes.headerButton} variant='h6' color='inherit'>
+            <Link to='/grid'>
+                            Grid
+            </Link>
+          </Typography>
+          <Typography className={classes.headerButton} variant='h6' color='inherit'>
+            <Link to='/login'>
+                            Login
+            </Link>
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
+}
+
+export default withStyles(styles)(TopMenu)
