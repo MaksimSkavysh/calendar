@@ -1,7 +1,7 @@
 import React from 'react'
 import * as R from 'ramda'
 import moment from 'moment'
-import { intervalDuration, intervalStart, makeInterval } from '../../data/intervals'
+import { intervalDuration, intervalStart, makeInterval } from 'data/intervals'
 
 import styles from './schedule.module.scss'
 
