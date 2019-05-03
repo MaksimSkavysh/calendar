@@ -4,13 +4,9 @@ import moment from 'moment'
 import {trace} from '../../utils/fp'
 
 import styles from './schedule.module.scss'
+import {intervalDuration, intervalStart, makeInterval} from '../../data/intervals'
 
 const DIVISIONS_NUMBER = 24
-
-const makeInterval = (s, e) => [s, e]
-const intervalStart = i => i[0]
-const intervalEnd = i => i[1]
-const intervalDuration = i => i[1] - i[0] + 1
 
 const state = {
     [1557003600000]: [makeInterval(12, 16), makeInterval(20, 23)]
