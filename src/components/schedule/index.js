@@ -6,6 +6,7 @@ import { intervalDuration, intervalStart, makeInterval } from 'data/intervals'
 import styles from './schedule.module.scss'
 
 const DIVISIONS_NUMBER = 24
+const ITEM_HEIGHT = 20
 
 const state = {
   1557003600000: [makeInterval(12, 16), makeInterval(20, 23)],
@@ -23,21 +24,21 @@ const getValue = d => d.valueOf()
 const dateToInterval = (intervalsMap) =>
   R.compose(R.defaultTo([]), R.flip(R.prop)(intervalsMap), getValue)
 
-const intervalStyles = R.curry((itemHeight, i) => ({
-  top: intervalStart(i) * itemHeight,
-  height: intervalDuration(i) * itemHeight,
-}))
+const intervalStyles = (i) => ({
+  top: intervalStart(i) * ITEM_HEIGHT,
+  height: intervalDuration(i) * ITEM_HEIGHT,
+})
 
-const IntervalItem = itemHeight => R.compose(
+const IntervalItems = R.map(R.compose(
   s => (<div className={styles.intervalItem} style={s} />),
-  intervalStyles(itemHeight),
-)
+  intervalStyles,
+))
 
-const Column = ({ column, itemHeight = 20 }) => (<div
+const Column = ({ column }) => (<div
   className={styles.column}
-  style={{ height: itemHeight * DIVISIONS_NUMBER }}
+  style={{ height: ITEM_HEIGHT * DIVISIONS_NUMBER }}
 >
-  {R.map(IntervalItem(itemHeight), column)}
+  {IntervalItems(column)}
 </div>)
 
 const Schedule = () => {
