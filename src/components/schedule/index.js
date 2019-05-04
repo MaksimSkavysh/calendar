@@ -1,7 +1,10 @@
 import React from 'react'
 import * as R from 'ramda'
 import moment from 'moment'
+import { compose } from 'redux'
 import { intervalDuration, intervalStart, makeInterval } from 'data/intervals'
+
+import { isLoggedHOC } from '../HOC'
 
 import styles from './schedule.module.scss'
 
@@ -59,4 +62,6 @@ const Schedule = () => {
   )
 }
 
-export default Schedule
+export default compose(
+  isLoggedHOC()
+)(Schedule)

@@ -41,6 +41,11 @@ const TopMenu = ({ classes }) => {
             </Link>
           </Typography>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>
+            <Link to='/schedule'>
+                            Schedule
+            </Link>
+          </Typography>
+          <Typography className={classes.headerButton} variant='h6' color='inherit'>
             <Link to='/login'>
                             Login
             </Link>

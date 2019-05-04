@@ -1,36 +1,33 @@
-import React, {useEffect, Fragment} from 'react'
-import {connect} from 'react-redux'
+import React, { useEffect, Fragment } from 'react'
+import { connect } from 'react-redux'
 
-import {compose} from 'redux'
+import { compose } from 'redux'
 
 import Grid from '../components/grid'
-import {timeStamp} from '../action-creators'
-import {isLoggedHOC} from '../components/HOC'
+import { timeStamp } from '../action-creators'
+import { isLoggedHOC } from '../components/HOC'
 
-const GridPage = ({timeList, login, timeStamp}) => {
+const GridPage = ({ timeList, timeStamp }) => {
+  useEffect(() => {
+    timeStamp()
+  }, [])
 
-    useEffect(() => {
-        if (login) {
-            timeStamp()
-        }
-    }, [])
-
-    return (
-        <Fragment>
-            <Grid timeList={timeList}/>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <Grid timeList={timeList} />
+    </Fragment>
+  )
 }
 
-const mapStateToProps = ({timeList}) => {
-    return {timeList}
+const mapStateToProps = ({ timeList }) => {
+  return { timeList }
 }
 
 const mapDispatchToProps = {
-    timeStamp,
+  timeStamp,
 }
 
 export default compose(
-    isLoggedHOC(),
-    connect(mapStateToProps, mapDispatchToProps),
+  isLoggedHOC(),
+  connect(mapStateToProps, mapDispatchToProps),
 )(GridPage)
