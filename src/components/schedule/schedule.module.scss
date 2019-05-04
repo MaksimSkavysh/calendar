@@ -1,0 +1,20 @@
+.body,
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.column,
+.headerItem {
+  width: 100%;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.intervalItem {
+  position: absolute;
+  width: 100%;
+  background-color: antiquewhite;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}

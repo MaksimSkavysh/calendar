@@ -3,7 +3,8 @@
   "extends": ["standard", "standard-react"],
   "plugins": ["babel", "react", "promise", "import", "import-order", "lodash"],
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "rules": {
     "key-spacing": 0,
