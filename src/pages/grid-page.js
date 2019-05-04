@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 
 import { compose } from 'redux'
 
+import { timeListLoaded } from 'reducers/timeList'
 import Grid from '../components/grid'
-import { timeStamp } from '../action-creators'
 import { isLoggedHOC } from '../components/HOC'
 
-const GridPage = ({ timeList, timeStamp }) => {
+const GridPage = ({ timeList, timeListLoaded }) => {
   useEffect(() => {
-    timeStamp()
+    timeListLoaded()
   }, [])
 
   return (
@@ -24,7 +24,7 @@ const mapStateToProps = ({ timeList }) => {
 }
 
 const mapDispatchToProps = {
-  timeStamp,
+  timeListLoaded,
 }
 
 export default compose(
