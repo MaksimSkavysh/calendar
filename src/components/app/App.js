@@ -5,6 +5,8 @@ import { MainPage, GridPage, LoginPage } from 'pages'
 import Schedule from 'components/schedule'
 import TopMenu from 'components/top-menu'
 
+import './app.module.scss'
+
 const App = () => {
   const [login, setLogin] = useState(false)
 
