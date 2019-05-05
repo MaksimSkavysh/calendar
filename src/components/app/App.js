@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { MainPage, GridPage, LoginPage } from '../../pages'
-import Schedule from '../schedule'
-import TopMenu from '../top-menu'
+import { MainPage, GridPage, LoginPage } from 'pages'
+import Schedule from 'components/schedule'
+import TopMenu from 'components/top-menu'
 
 const App = () => {
   const [login, setLogin] = useState(false)

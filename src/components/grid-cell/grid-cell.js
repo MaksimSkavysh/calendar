@@ -3,18 +3,17 @@ import classNames from 'classnames'
 
 import style from './cell.module.scss'
 
-const GridCell = ({value, isEdited}) => {
+const GridCell = ({ value, isEdited }) => {
+  const clazz = classNames({
+    [style.cellEdited]: isEdited,
+  }, style.cell)
 
-    const clazz = classNames({
-        [style.cellEdited]: isEdited,
-    }, style.cell)
-
-    return (
-        <div
-            className={clazz}>
-            {value}
-        </div>
-    )
+  return (
+    <div
+      className={clazz}>
+      {value}
+    </div>
+  )
 }
 
 export default GridCell
