@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { MainPage, GridPage, LoginPage } from 'pages'
+import MainPage from 'pages/main-page'
+import LoginPage from 'pages/login-page'
 import Schedule from 'components/schedule'
 import TopMenu from 'components/top-menu'
 
@@ -19,13 +20,6 @@ const App = () => {
             <MainPage login={login} />
           )}
           exact />
-        <Route path='/grid'
-          render={() => (
-            <GridPage
-              login={login} />
-          )}
-          exact
-        />
         <Route path='/schedule'
           render={() =>
             <Schedule

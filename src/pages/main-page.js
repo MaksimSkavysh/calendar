@@ -1,12 +1,11 @@
 import React from 'react'
 
-import {isLoggedHOC} from '../components/HOC'
+import { isLoggedHOC } from 'components/HOC'
 
 const MainPage = () => {
-
-    return (
-        <h2>Welcome to RSP</h2>
-    )
+  return (
+    <h2>Welcome to RSP</h2>
+  )
 }
 
 export default isLoggedHOC()(MainPage)

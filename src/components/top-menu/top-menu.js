@@ -32,22 +32,17 @@ const TopMenu = ({ classes }) => {
           </IconButton>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>
             <Link to='/'>
-                            RSP
-            </Link>
-          </Typography>
-          <Typography className={classes.headerButton} variant='h6' color='inherit'>
-            <Link to='/grid'>
-                            Grid
+              RSP
             </Link>
           </Typography>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>
             <Link to='/schedule'>
-                            Schedule
+              Schedule
             </Link>
           </Typography>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>
             <Link to='/login'>
-                            Login
+              Login
             </Link>
           </Typography>
         </Toolbar>
