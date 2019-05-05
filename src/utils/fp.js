@@ -1,6 +1,7 @@
 import * as R from 'ramda'
 
 export const trace = R.curry((name, item) => {
-    console.log(name, item)
-    return item
+  // eslint-disable-next-line
+  console.log(name, item)
+  return item
 })
