@@ -41,6 +41,7 @@ export const scheduleFromDate = (intervalsMap) => R.applySpec({
   schedule: date => intervalsMap[date] || [],
 })
 
+
 const Schedule = () => {
   const config = {
     1557003600000: [makeInterval(12, 16), makeInterval(20, 23)],
