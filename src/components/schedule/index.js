@@ -3,21 +3,8 @@ import * as R from 'ramda'
 import moment from 'moment'
 import { makeInterval } from 'data/intervals'
 
-
+import { ColumnsList } from './Column'
 import styles from './schedule.module.scss'
-import { IntervalItems } from './Interval'
-
-const DIVISIONS_NUMBER = 24
-const ITEM_HEIGHT = 20
-
-const Column = ({ date, schedule }) => (<div
-  key={date}
-  className={styles.column}
-  style={{ height: ITEM_HEIGHT * DIVISIONS_NUMBER }}
->
-  {IntervalItems(schedule || [])}
-</div>)
-const ColumnsList = R.map(Column)
 
 const getDaysList = (startDate, amount) => {
   const toDate = (d) => moment(startDate).add(d, 'days').valueOf()
@@ -28,7 +15,6 @@ export const scheduleFromDate = (intervalsMap) => R.applySpec({
   date: R.identity,
   schedule: date => intervalsMap[date] || [],
 })
-
 
 const Schedule = () => {
   const config = {
