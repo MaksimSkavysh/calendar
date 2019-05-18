@@ -1,26 +1,14 @@
 import React from 'react'
 import * as R from 'ramda'
 import moment from 'moment'
-import { compose } from 'redux'
-import { intervalDuration, intervalStart, makeInterval } from 'data/intervals'
+import { makeInterval } from 'data/intervals'
 
-import { isLoggedHOC } from 'components/HOC'
 
 import styles from './schedule.module.scss'
+import { IntervalItems } from './Interval'
 
 const DIVISIONS_NUMBER = 24
 const ITEM_HEIGHT = 20
-
-const intervalStyles = (interval) => ({
-  top: intervalStart(interval) * ITEM_HEIGHT,
-  height: intervalDuration(interval) * ITEM_HEIGHT,
-})
-const Interval = interval => (<div
-  className={styles.intervalItem}
-  key={intervalStart(interval)}
-  style={intervalStyles(interval)}
-/>)
-const IntervalItems = R.map(Interval)
 
 const Column = ({ date, schedule }) => (<div
   key={date}
@@ -29,7 +17,7 @@ const Column = ({ date, schedule }) => (<div
 >
   {IntervalItems(schedule || [])}
 </div>)
-const ColumnsList = R.map(R.compose(Column))
+const ColumnsList = R.map(Column)
 
 const getDaysList = (startDate, amount) => {
   const toDate = (d) => moment(startDate).add(d, 'days').valueOf()
@@ -44,10 +32,11 @@ export const scheduleFromDate = (intervalsMap) => R.applySpec({
 
 const Schedule = () => {
   const config = {
-    1557003600000: [makeInterval(12, 16), makeInterval(20, 23)],
+    1558213200000: [makeInterval(12, 16), makeInterval(20, 23)],
   }
   const startData = moment(new Date()).startOf('day').valueOf()
   const daysAmount = 7
+
   const daysList = getDaysList(startData, daysAmount)
   const names = R.map(d => moment(d).format('ddd'))(daysList)
   const columns = R.map(scheduleFromDate(config), daysList)
@@ -63,6 +52,4 @@ const Schedule = () => {
   )
 }
 
-export default compose(
-  isLoggedHOC()
-)(Schedule)
+export default Schedule
