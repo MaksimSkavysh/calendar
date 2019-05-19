@@ -5,6 +5,7 @@ import { makeInterval } from 'data/intervals'
 
 import { ColumnsList } from './Column'
 import styles from './schedule.module.scss'
+import { Header } from './Header'
 
 const getDaysList = (startDate, amount) => {
   const toDate = (d) => moment(startDate).add(d, 'days').valueOf()
@@ -24,13 +25,10 @@ const Schedule = () => {
   const daysAmount = 7
 
   const daysList = getDaysList(startData, daysAmount)
-  const names = R.map(d => moment(d).format('ddd'))(daysList)
   const columns = R.map(scheduleFromDate(config), daysList)
   return (
     <div>
-      <div className={styles.header}>
-        {names.map(name => (<div className={styles.headerItem} key={name}>{name}</div>))}
-      </div>
+      <Header dates={daysList} />
       <div className={styles.body}>
         {ColumnsList(columns)}
       </div>
