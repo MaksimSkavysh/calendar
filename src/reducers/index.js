@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import timeList from 'reducers/timeList'
+import schedule from 'reducers/schedule'
 
 export default combineReducers({
-  timeList,
+  schedule,
 })

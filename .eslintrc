@@ -7,7 +7,7 @@
     "jest": true
   },
   "rules": {
-    "indent": ["error", 2, {"FunctionDeclaration": {"parameters": "first"}}],
+//    "indent": ["error", 2],
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
     "semi": [2, "never"],
     "key-spacing": 0,

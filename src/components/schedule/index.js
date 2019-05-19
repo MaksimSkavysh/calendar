@@ -1,35 +1,11 @@
 import React from 'react'
 import * as R from 'ramda'
 import moment from 'moment'
-import { compose } from 'redux'
-import { intervalDuration, intervalStart, makeInterval } from 'data/intervals'
+import { makeInterval } from 'data/intervals'
 
-import { isLoggedHOC } from 'components/HOC'
-
+import { ColumnsList } from './Column'
 import styles from './schedule.module.scss'
-
-const DIVISIONS_NUMBER = 24
-const ITEM_HEIGHT = 20
-
-const intervalStyles = (interval) => ({
-  top: intervalStart(interval) * ITEM_HEIGHT,
-  height: intervalDuration(interval) * ITEM_HEIGHT,
-})
-const Interval = interval => (<div
-  className={styles.intervalItem}
-  key={intervalStart(interval)}
-  style={intervalStyles(interval)}
-/>)
-const IntervalItems = R.map(Interval)
-
-const Column = ({ date, schedule }) => (<div
-  key={date}
-  className={styles.column}
-  style={{ height: ITEM_HEIGHT * DIVISIONS_NUMBER }}
->
-  {IntervalItems(schedule || [])}
-</div>)
-const ColumnsList = R.map(R.compose(Column))
+import { Header } from './Header'
 
 const getDaysList = (startDate, amount) => {
   const toDate = (d) => moment(startDate).add(d, 'days').valueOf()
@@ -41,21 +17,18 @@ export const scheduleFromDate = (intervalsMap) => R.applySpec({
   schedule: date => intervalsMap[date] || [],
 })
 
-
 const Schedule = () => {
   const config = {
-    1557003600000: [makeInterval(12, 16), makeInterval(20, 23)],
+    1558213200000: [makeInterval(12, 16), makeInterval(20, 23)],
   }
   const startData = moment(new Date()).startOf('day').valueOf()
   const daysAmount = 7
+
   const daysList = getDaysList(startData, daysAmount)
-  const names = R.map(d => moment(d).format('ddd'))(daysList)
   const columns = R.map(scheduleFromDate(config), daysList)
   return (
     <div>
-      <div className={styles.header}>
-        {names.map(name => (<div className={styles.headerItem} key={name}>{name}</div>))}
-      </div>
+      <Header dates={daysList} />
       <div className={styles.body}>
         {ColumnsList(columns)}
       </div>
@@ -63,6 +36,4 @@ const Schedule = () => {
   )
 }
 
-export default compose(
-  isLoggedHOC()
-)(Schedule)
+export default Schedule
