@@ -13,8 +13,15 @@
 .intervalItem {
   position: absolute;
   width: 100%;
-  background-color: antiquewhite;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   box-sizing: border-box;
+}
+
+.regularInterval {
+  background-color: antiquewhite;
+}
+
+.customInterval {
+  background-color: aqua;
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+import cn from 'classnames'
+import { createSelector } from 'reselect'
 import * as R from 'ramda'
 
 import { ITEM_HEIGHT } from 'constants/schedule'
@@ -9,11 +11,12 @@ import styles from './schedule.module.scss'
 const heightMultiply = R.multiply(ITEM_HEIGHT)
 const getTop = R.compose(heightMultiply, intervalStart)
 const getHeight = R.compose(heightMultiply, intervalDuration)
-const intervalStyles = R.applySpec({ top: getTop, height: getHeight })
+const intervalStyles = createSelector(getTop, getHeight, (top, height) => ({ top, height }))
 
-const Interval = interval => (<div
-  className={styles.intervalItem}
-  key={intervalStart(interval)}
-  style={intervalStyles(interval)}
-/>)
-export const IntervalItems = R.map(Interval)
+export const IntervalItems = ({ intervals, type }) => (<div>
+  {intervals.map(interval => (<div
+    className={cn(styles.intervalItem, type === 'custom' ? styles.customInterval : styles.regularInterval)}
+    key={intervalStart(interval)}
+    style={intervalStyles(interval)}
+  />))}
+</div>)
