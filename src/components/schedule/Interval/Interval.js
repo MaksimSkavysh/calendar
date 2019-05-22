@@ -6,7 +6,7 @@ import * as R from 'ramda'
 import { ITEM_HEIGHT } from 'constants/schedule'
 import { intervalDuration, intervalStart } from 'data/intervals'
 
-import styles from './schedule.module.scss'
+import styles from './interval.module.scss'
 
 const heightMultiply = R.multiply(ITEM_HEIGHT)
 const getTop = R.compose(heightMultiply, intervalStart)

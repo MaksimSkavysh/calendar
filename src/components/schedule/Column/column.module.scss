@@ -1,0 +1,9 @@
+.column {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.column:not(:last-child) {
+  border-right: 1px solid gray;
+}

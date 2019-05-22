@@ -3,9 +3,10 @@ import * as R from 'ramda'
 import moment from 'moment'
 
 import { isoWeekday } from 'utils/moment'
-import { ColumnsList } from './Column'
+import ColumnsList from 'components/schedule/Column'
+import Header from 'components/schedule/Header'
+
 import styles from './schedule.module.scss'
-import { Header } from './Header'
 
 const getDaysList = (startDate, amount) => {
   const toDate = (d) => moment(startDate).add(d, 'days').valueOf()
