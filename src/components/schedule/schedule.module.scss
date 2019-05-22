@@ -1,13 +1,34 @@
+$BORDER_COLOR: gray;
+
 .body,
 .header {
   display: flex;
   justify-content: space-between;
 }
+
+.header {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+%border-right {
+  &:not(:last-child) {
+    border-right: 1px solid $BORDER_COLOR;
+  }
+}
+
 .column,
 .headerItem {
   width: 100%;
-  border: 1px solid gray;
   position: relative;
+  text-align: center;
+}
+
+.column {
+  @extend %border-right
+}
+
+.headerItem {
+  padding: 5px 0;
 }
 
 .intervalItem {
