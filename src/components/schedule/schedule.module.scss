@@ -1,12 +1,23 @@
 $BORDER_COLOR: gray;
+$SCHEDULE_HEADER_HEIGHT: 65px;
+$SCHEDULE_HEADER_Z_INDEX: 1;
+
+.schedule {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .body,
 .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .header {
+  height: $SCHEDULE_HEADER_HEIGHT;
+  z-index: $SCHEDULE_HEADER_Z_INDEX;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -15,4 +26,9 @@ $BORDER_COLOR: gray;
   position: relative;
   text-align: center;
   padding: 5px 0;
+}
+
+.body {
+  position: relative;
+  overflow: auto;
 }

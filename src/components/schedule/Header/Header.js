@@ -5,6 +5,7 @@ import Chip from '@material-ui/core/Chip'
 import { format } from 'utils/moment'
 
 import styles from '../schedule.module.scss'
+import { SCROLLBAR_WIDTH } from '../../../utils/dom'
 
 const headerItemParams = R.applySpec({ name: format('ddd'), number: format('DD') })
 const HeaderItemRender = ({ name, number }) => (
@@ -18,6 +19,7 @@ const HeaderItems = R.map(R.compose(HeaderItemRender, headerItemParams))
 export const Header = ({ dates }) => (
   <div className={styles.header}>
     {HeaderItems(dates)}
+    <div style={{ minWidth: SCROLLBAR_WIDTH }} />
   </div>
 )
 

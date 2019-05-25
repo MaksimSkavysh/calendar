@@ -1,3 +1,3 @@
 export const DIVISIONS_NUMBER = 24
-export const ITEM_HEIGHT = 20
+export const ITEM_HEIGHT = 50
 export const COLUMN_HEIGHT = ITEM_HEIGHT * DIVISIONS_NUMBER

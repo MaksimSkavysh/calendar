@@ -36,7 +36,7 @@ const Schedule = () => {
   const daysList = getDaysList(startData, daysAmount)
   const schedulesByDay = R.map(scheduleFromDate(config), daysList)
   return (
-    <div>
+    <div className={styles.schedule}>
       <Header dates={daysList} />
       <div className={styles.body}>
         {ColumnsList(schedulesByDay)}
