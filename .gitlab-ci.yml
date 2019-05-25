@@ -1,0 +1,23 @@
+image: node:latest
+
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - test
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+#----------------Unit tests jobs----------------------
+testing_testing:
+  stage: test
+  script: npm test
