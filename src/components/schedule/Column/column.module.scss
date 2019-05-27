@@ -1,8 +1,9 @@
 @import "styles/mixins";
+@import "styles/variables";
 
 .column {
   width: 100%;
   position: relative;
   text-align: center;
-  @include columns-border(gray)
+  @include columns-border($GRID_BORDER_COLOR)
 }
