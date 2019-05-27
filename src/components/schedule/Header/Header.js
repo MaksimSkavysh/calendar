@@ -24,7 +24,9 @@ const HeaderItems = R.map(R.compose(HeaderItemRender, headerItemParams))
 export const Header = ({ dates }) => (
   <div className={styles.header}>
     <LegendHeaderItem />
-    {HeaderItems(dates)}
+    <div className={styles.itemsWrapper}>
+      {HeaderItems(dates)}
+    </div>
     <div style={{ minWidth: SCROLLBAR_WIDTH }} />
   </div>
 )

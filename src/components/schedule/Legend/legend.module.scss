@@ -1,6 +1,5 @@
 $LEGEND_TIME_LINE_HEIGHT: 14px;
 $LEGEND_ITEM_WIDTH: 60px;
-$LEGEND_PADDING_RIGHT: 5px;
 
 .legend {
   min-width: $LEGEND_ITEM_WIDTH;
@@ -17,7 +16,6 @@ $LEGEND_PADDING_RIGHT: 5px;
   .legendHeaderItemText {
     display: block;
     margin-top: auto;
-    padding-right: $LEGEND_PADDING_RIGHT;
   }
 }
 
@@ -28,7 +26,6 @@ $LEGEND_PADDING_RIGHT: 5px;
   position: relative;
   text-align: right;
   display: block;
-  padding-right: $LEGEND_PADDING_RIGHT;
 }
 
 .legendItem {

@@ -1,4 +1,4 @@
-$BORDER_COLOR: gray;
+@import "styles/variables";
 
 .schedule {
   height: 100%;
@@ -10,6 +10,7 @@ $BORDER_COLOR: gray;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-left: $SCHEDULE_GRID_PADDING;
 }
 
 .main {
