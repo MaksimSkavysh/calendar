@@ -1,0 +1,39 @@
+$LEGEND_TIME_LINE_HEIGHT: 14px;
+$LEGEND_ITEM_WIDTH: 60px;
+$LEGEND_PADDING_RIGHT: 5px;
+
+.legend {
+  min-width: $LEGEND_ITEM_WIDTH;
+  box-sizing: border-box;
+}
+
+.legendHeaderItem {
+  min-width: $LEGEND_ITEM_WIDTH;
+  max-width: $LEGEND_ITEM_WIDTH;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  .legendHeaderItemText {
+    display: block;
+    margin-top: auto;
+    padding-right: $LEGEND_PADDING_RIGHT;
+  }
+}
+
+.legendItemTime {
+  font-size: $LEGEND_TIME_LINE_HEIGHT;
+  line-height: $LEGEND_TIME_LINE_HEIGHT;
+  top: -$LEGEND_TIME_LINE_HEIGHT/2;
+  position: relative;
+  text-align: right;
+  display: block;
+  padding-right: $LEGEND_PADDING_RIGHT;
+}
+
+.legendItem {
+  &:first-child .legendItemTime {
+    display: none;
+  }
+}
+

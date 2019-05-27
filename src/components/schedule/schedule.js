@@ -5,6 +5,7 @@ import moment from 'moment'
 import { isoWeekday } from 'utils/moment'
 import ColumnsList from 'components/schedule/Column'
 import Header from 'components/schedule/Header'
+import Legend from 'components/schedule/Legend'
 
 import styles from './schedule.module.scss'
 
@@ -38,8 +39,11 @@ const Schedule = () => {
   return (
     <div className={styles.schedule}>
       <Header dates={daysList} />
-      <div className={styles.body}>
-        {ColumnsList(schedulesByDay)}
+      <div className={styles.main}>
+        <Legend />
+        <div className={styles.body}>
+          {ColumnsList(schedulesByDay)}
+        </div>
       </div>
     </div>
   )

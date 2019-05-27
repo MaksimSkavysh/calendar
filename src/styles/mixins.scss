@@ -1,0 +1,14 @@
+@mixin columns-border($color, $selector: "&") {
+  &:not(:last-child) {
+    #{$selector} {
+      border-right: 1px solid $color;
+    }
+  }
+
+  &:first-child {
+    #{$selector} {
+      border-left: 1px solid $color;
+    }
+  }
+}
+

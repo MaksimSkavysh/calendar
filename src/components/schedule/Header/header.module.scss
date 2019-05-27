@@ -1,0 +1,39 @@
+@import "styles/mixins";
+$SCHEDULE_HEADER_HEIGHT: 65px;
+$SCHEDULE_HEADER_Z_INDEX: 1;
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  min-height: $SCHEDULE_HEADER_HEIGHT;
+  max-height: $SCHEDULE_HEADER_HEIGHT;
+  z-index: $SCHEDULE_HEADER_Z_INDEX;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.headerItem {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .headerText {
+    padding-top: 5px;
+  }
+
+  .headerChip {
+    padding-bottom: 5px;
+  }
+
+  .borderItem {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    bottom: 0;
+  }
+
+  @include columns-border(gray, ".borderItem");
+}

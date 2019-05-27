@@ -1,9 +1,8 @@
+@import "styles/mixins";
+
 .column {
   width: 100%;
   position: relative;
   text-align: center;
-}
-
-.column:not(:last-child) {
-  border-right: 1px solid gray;
+  @include columns-border(gray)
 }
