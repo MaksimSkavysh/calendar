@@ -18,3 +18,15 @@
   overflow: auto;
   display: flex;
 }
+
+.horizontalItem {
+  &::after{
+    content: '';
+    border-bottom: #dadce0 1px solid;
+    position: absolute;
+    width: calc(100% - #{$LEGEND_ITEM_WIDTH + 5px});
+    margin-top: -1px;
+    pointer-events: none;
+    right: 0;
+  }
+}

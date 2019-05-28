@@ -2,6 +2,7 @@ import React from 'react'
 import * as R from 'ramda'
 import moment from 'moment'
 
+import { DIVISIONS_NUMBER, ITEM_HEIGHT } from 'constants/schedule'
 import { isoWeekday } from 'utils/moment'
 import ColumnsList from 'components/schedule/Column'
 import Header from 'components/schedule/Header'
@@ -26,6 +27,16 @@ export const scheduleFromDate = (config) => R.applySpec({
   custom: customIntervals(config),
 })
 
+const HorizontalGridLines = () => (
+  <div>
+    {R.map(i => (<div
+      key={i}
+      className={styles.horizontalItem}
+      style={{ height: ITEM_HEIGHT }}
+    />), R.range(0, DIVISIONS_NUMBER))}
+  </div>
+)
+
 const Schedule = () => {
   const startData = moment(new Date()).startOf('day').valueOf()
   const daysAmount = 7
@@ -41,6 +52,7 @@ const Schedule = () => {
       <Header dates={daysList} />
       <div className={styles.main}>
         <Legend />
+        <HorizontalGridLines />
         <div className={styles.body}>
           {ColumnsList(schedulesByDay)}
         </div>

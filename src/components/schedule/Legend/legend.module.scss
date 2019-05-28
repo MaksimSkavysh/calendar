@@ -1,5 +1,4 @@
-$LEGEND_TIME_LINE_HEIGHT: 14px;
-$LEGEND_ITEM_WIDTH: 60px;
+@import "styles/variables";
 
 .legend {
   min-width: $LEGEND_ITEM_WIDTH;
