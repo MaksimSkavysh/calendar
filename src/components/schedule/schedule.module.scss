@@ -1,6 +1,4 @@
-$BORDER_COLOR: gray;
-$SCHEDULE_HEADER_HEIGHT: 65px;
-$SCHEDULE_HEADER_Z_INDEX: 1;
+@import "styles/variables";
 
 .schedule {
   height: 100%;
@@ -8,27 +6,27 @@ $SCHEDULE_HEADER_Z_INDEX: 1;
   flex-direction: column;
 }
 
-.body,
-.header {
+.body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-left: $SCHEDULE_GRID_PADDING;
 }
 
-.header {
-  height: $SCHEDULE_HEADER_HEIGHT;
-  z-index: $SCHEDULE_HEADER_Z_INDEX;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-}
-
-.headerItem {
-  width: 100%;
-  position: relative;
-  text-align: center;
-  padding: 5px 0;
-}
-
-.body {
+.main {
   position: relative;
   overflow: auto;
+  display: flex;
+}
+
+.horizontalItem {
+  &::after{
+    content: '';
+    border-bottom: #dadce0 1px solid;
+    position: absolute;
+    width: calc(100% - #{$LEGEND_ITEM_WIDTH + 5px});
+    margin-top: -1px;
+    pointer-events: none;
+    right: 0;
+  }
 }
