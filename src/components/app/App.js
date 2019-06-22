@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import MainPage from 'pages/main-page'
 import LoginPage from 'pages/login-page'
-import Schedule from 'components/schedule'
 import TopMenu from 'components/top-menu'
 
 import styles from './app.module.scss'
+
+const Schedule = React.lazy(() => import('components/schedule'))
+
+const fallback = <CircularProgress />
 
 const App = () => {
   const [login, setLogin] = useState(false)
@@ -25,7 +29,9 @@ const App = () => {
           <Route
             path='/schedule'
             render={() => (
-              <Schedule login={login} />
+              <Suspense fallback={fallback} >
+                <Schedule login={login} />
+              </Suspense>
             )}
             exact />
           <Route path='/login'
