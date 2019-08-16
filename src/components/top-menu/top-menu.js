@@ -32,7 +32,7 @@ const TopMenu = ({ classes }) => {
           </IconButton>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>
             <Link to='/'>
-              RSP
+              Main
             </Link>
           </Typography>
           <Typography className={classes.headerButton} variant='h6' color='inherit'>

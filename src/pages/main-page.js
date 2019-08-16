@@ -4,7 +4,7 @@ import { isLoggedHOC } from 'components/HOC'
 
 const MainPage = () => {
   return (
-    <h2>Welcome to RSP</h2>
+    <h2>Welcome to Main page</h2>
   )
 }
 
