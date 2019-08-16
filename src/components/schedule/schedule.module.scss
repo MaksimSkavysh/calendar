@@ -1,0 +1,32 @@
+@import "styles/variables";
+
+.schedule {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: $SCHEDULE_GRID_PADDING;
+}
+
+.main {
+  position: relative;
+  overflow: scroll;
+  display: flex;
+}
+
+.horizontalItem {
+  &::after{
+    content: '';
+    border-bottom: #dadce0 1px solid;
+    position: absolute;
+    width: calc(100% - #{$LEGEND_ITEM_WIDTH + 5px});
+    margin-top: -1px;
+    pointer-events: none;
+    right: 0;
+  }
+}
